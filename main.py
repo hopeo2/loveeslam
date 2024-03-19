@@ -46,14 +46,28 @@ def check_sobh_time():
     tehran_time = current_time.astimezone(city_timezone)
     tehran_str = str(tehran_time)
     if str(adhan_sobh_time) == tehran_str[11:16]:
+        auth = tweepy.OAuth1UserHandler(
+            consumer_key=consumer_key,
+            consumer_secret=consumer_secret
+        )
+        auth.set_access_token(
+            access_token=access_token,
+            access_token_secret=access_token_secret
+        )
+
+        api_v1 = tweepy.API(auth)
         client = tweepy.Client(bearer_token=bearer_token,
                                consumer_key=consumer_key,
                                consumer_secret=consumer_secret,
                                access_token=access_token,
                                access_token_secret=access_token_secret)
 
-        text = "just hello-sobh 💀 " + str(adhan_sobh_time)
-        client.create_tweet(text=text)
+        # Upload media and get media_id
+        media_path = "capitandola1.jpg"
+        media = api_v1.media_upload(filename=media_path)
+        media_id = media.media_id
+        text = "💀کاپیتان دولا راست شو .. نماز صبحه " + str(adhan_sobh_time)
+        client.create_tweet(text=text, media_ids=[media_id])
         print(f"tweet send >> {text}")
 
 
@@ -66,14 +80,28 @@ def check_zohr_time():
     tehran_str = str(tehran_time)
     final_time = convert_to_24h(adhan_zohr_time, is_pm=True)
     if str(final_time) == tehran_str[11:16]:
+        auth = tweepy.OAuth1UserHandler(
+            consumer_key=consumer_key,
+            consumer_secret=consumer_secret
+        )
+        auth.set_access_token(
+            access_token=access_token,
+            access_token_secret=access_token_secret
+        )
+        api_v1 = tweepy.API(auth)
         client = tweepy.Client(bearer_token=bearer_token,
                                consumer_key=consumer_key,
                                consumer_secret=consumer_secret,
                                access_token=access_token,
                                access_token_secret=access_token_secret)
 
-        text = "just hello-zohr 💀 " + str(final_time)
-        client.create_tweet(text=text)
+
+        # Upload media and get media_id
+        media_path = "capitandola.jpg"
+        media = api_v1.media_upload(filename=media_path)
+        media_id = media.media_id
+        text = "💀کاپیتان دولا راست شو .. نماز ظهره " + str(final_time)
+        client.create_tweet(text=text, media_ids=[media_id])
         print(f"tweet send >> {text}")
 
 
@@ -86,14 +114,28 @@ def check_asr_time():
     tehran_str = str(tehran_time)
     final_time = convert_to_24h(adhan_asr_time, is_pm=True)
     if str(final_time) == tehran_str[11:16]:
+        auth = tweepy.OAuth1UserHandler(
+            consumer_key=consumer_key,
+            consumer_secret=consumer_secret
+        )
+        auth.set_access_token(
+            access_token=access_token,
+            access_token_secret=access_token_secret
+        )
+        api_v1 = tweepy.API(auth)
         client = tweepy.Client(bearer_token=bearer_token,
                                consumer_key=consumer_key,
                                consumer_secret=consumer_secret,
                                access_token=access_token,
                                access_token_secret=access_token_secret)
 
-        text = "just hello-asr 💀 " + str(final_time)
-        client.create_tweet(text=text)
+
+        # Upload media and get media_id
+        media_path = "capitandola.jpg"
+        media = api_v1.media_upload(filename=media_path)
+        media_id = media.media_id
+        text = "💀کاپیتان دولا راست شو .. نماز عصره " + str(final_time)
+        client.create_tweet(text=text, media_ids=[media_id])
         print(f"tweet send >> {text}")
 
 
@@ -106,14 +148,27 @@ def check_magh_time():
     tehran_str = str(tehran_time)
     final_time = convert_to_24h(adhan_magh_time, is_pm=True)
     if str(final_time) == tehran_str[11:16]:
+        auth = tweepy.OAuth1UserHandler(
+            consumer_key=consumer_key,
+            consumer_secret=consumer_secret
+        )
+        auth.set_access_token(
+            access_token=access_token,
+            access_token_secret=access_token_secret
+        )
+        api_v1 = tweepy.API(auth)
         client = tweepy.Client(bearer_token=bearer_token,
                                consumer_key=consumer_key,
                                consumer_secret=consumer_secret,
                                access_token=access_token,
                                access_token_secret=access_token_secret)
 
-        text = "just hello-maghrib 💀 " + str(final_time)
-        client.create_tweet(text=text)
+        # Upload media and get media_id
+        media_path = "capitandola.jpg"
+        media = api_v1.media_upload(filename=media_path)
+        media_id = media.media_id
+        text = "💀کاپیتان دولا راست شو .. نماز مغربه " + str(final_time)
+        client.create_tweet(text=text, media_ids=[media_id])
         print(f"tweet send >> {text}")
 
 
@@ -126,24 +181,37 @@ def check_isha_time():
     tehran_str = str(tehran_time)
     final_time = convert_to_24h(adhan_isha_time, is_pm=True)
     if str(final_time) == tehran_str[11:16]:
+        auth = tweepy.OAuth1UserHandler(
+            consumer_key=consumer_key,
+            consumer_secret=consumer_secret
+        )
+        auth.set_access_token(
+            access_token=access_token,
+            access_token_secret=access_token_secret
+        )
+        api_v1 = tweepy.API(auth)
         client = tweepy.Client(bearer_token=bearer_token,
                                consumer_key=consumer_key,
                                consumer_secret=consumer_secret,
                                access_token=access_token,
                                access_token_secret=access_token_secret)
 
-        text = "just hello-isha 💀 " + str(final_time)
-        client.create_tweet(text=text)
+        # Upload media and get media_id
+        media_path = "capitandola.jpg"
+        media = api_v1.media_upload(filename=media_path)
+        media_id = media.media_id
+        text = "💀کاپیتان دولا راست شو .. نماز عشاعهه " + str(final_time)
+        client.create_tweet(text=text, media_ids=[media_id])
         print(f"tweet send >> {text}")
 
 
 if __name__ == "__main__":
     sched = BackgroundScheduler()
-    sched.add_job(check_sobh_time, 'interval', seconds=55)
-    sched.add_job(check_zohr_time, 'interval', seconds=56)
-    sched.add_job(check_asr_time, 'interval', seconds=57)
-    sched.add_job(check_magh_time, 'interval', seconds=58)
-    sched.add_job(check_isha_time, 'interval', seconds=59)
+    sched.add_job(check_sobh_time, 'interval', seconds=53)
+    sched.add_job(check_zohr_time, 'interval', seconds=54)
+    sched.add_job(check_asr_time, 'interval', seconds=55)
+    sched.add_job(check_magh_time, 'interval', seconds=56)
+    sched.add_job(check_isha_time, 'interval', seconds=57)
     sched.start()
     try:
         while True:
